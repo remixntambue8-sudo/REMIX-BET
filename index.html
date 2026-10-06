@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>REMIX BET</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f4f7fb;
+      color: #102a56;
+    }
+
+    header {
+      background: #0b3d91;
+      color: white;
+      padding: 18px;
+      text-align: center;
+      border-bottom: 5px solid #ffd400;
+    }
+
+    header h1 {
+      margin: 0;
+      color: #ffd400;
+      font-size: 30px;
+    }
+
+    header p {
+      margin: 6px 0 0;
+      font-size: 12px;
+    }
+
+    .hero {
+      margin: 20px;
+      padding: 25px;
+      background: #0b3d91;
+      color: white;
+      border-radius: 20px;
+      text-align: center;
+    }
+
+    .hero h2 {
+      font-size: 28px;
+      color: #ffd400;
+      margin: 5px;
+    }
+
+    .hero p {
+      line-height: 1.5;
+    }
+
+    .btn {
+      display: inline-block;
+      background: #ffd400;
+      color: #0b3d91;
+      padding: 13px 20px;
+      border-radius: 10px;
+      text-decoration: none;
+      font-weight: bold;
+      margin-top: 10px;
+    }
+
+    .section {
+      margin: 20px;
+    }
+
+    .section h2 {
+      color: #0b3d91;
+    }
+
+    .match {
+      background: white;
+      margin-bottom: 15px;
+      padding: 17px;
+      border-radius: 15px;
+      border-left: 5px solid #ffd400;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+    }
+
+    .league {
+      color: #777;
+      font-size: 12px;
+    }
+
+    .teams {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin: 15px 0;
+      font-weight: bold;
+    }
+
+    .vs {
+      color: #0b3d91;
+      font-size: 14px;
+    }
+
+    .analysis {
+      background: #eef5ff;
+      padding: 12px;
+      border-radius: 10px;
+      font-size: 14px;
+    }
+
+    .confidence {
+      display: inline-block;
+      background: #ffd400;
+      color: #0b3d91;
+      padding: 5px 9px;
+      border-radius: 20px;
+      font-weight: bold;
+      margin-top: 8px;
+    }
+
+    .card {
+      background: white;
+      padding: 20px;
+      border-radius: 15px;
+      margin-bottom: 15px;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+    }
+
+    footer {
+      background: #0b3d91;
+      color: white;
+      text-align: center;
+      padding: 25px 15px;
+      margin-top: 30px;
+    }
+
+    footer strong {
+      color: #ffd400;
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <h1>REMIX BET</h1>
+  <p>ANALYSES • STATISTIQUES • PRONOSTICS</p>
+</header>
+
+<section class="hero">
+  <h2>Bienvenue sur REMIX BET ⚽</h2>
+  <p>
+    Analyse les matchs, consulte les statistiques
+    et découvre nos sélections.
+  </p>
+  <a href="#matchs" class="btn">Voir les matchs</a>
+</section>
+
+<section class="section" id="matchs">
+  <h2>⚽ Matchs du jour</h2>
+
+  <div class="match">
+    <div class="league">Exemple League • 18:00</div>
+
+    <div class="teams">
+      <span>Équipe A</span>
+      <span class="vs">VS</span>
+      <span>Équipe B</span>
+    </div>
+
+    <div class="analysis">
+      <strong>📊 Analyse</strong>
+      <p>
+        Exemple d'analyse du match. Les vraies données
+        seront connectées dans une prochaine version.
+      </p>
+
+      <strong>🎯 Sélection : Plus de 1,5 buts</strong><br>
+
+      <span class="confidence">
+        Confiance : 78%
+      </span>
+    </div>
+  </div>
+
+  <div class="match">
+    <div class="league">Exemple League • 20:30</div>
+
+    <div class="teams">
+      <span>Équipe C</span>
+      <span class="vs">VS</span>
+      <span>Équipe D</span>
+    </div>
+
+    <div class="analysis">
+      <strong>📊 Analyse</strong>
+      <p>
+        Exemple d'analyse pour présenter
+        les statistiques du match.
+      </p>
+
+      <strong>🎯 Sélection : Double chance 1X</strong><br>
+
+      <span class="confidence">
+        Confiance : 72%
+      </span>
+    </div>
+  </div>
+
+</section>
+
+<section class="section">
+
+  <h2>👥 Parrainage</h2>
+
+  <div class="card">
+    <h3>Invite tes amis</h3>
+    <p>
+      Bientôt, chaque utilisateur de REMIX BET
+      recevra son propre code de parrainage.
+    </p>
+
+    <a href="#" class="btn">Partager REMIX BET</a>
+  </div>
+
+</section>
+
+<section class="section">
+
+  <h2>💰 Affiliation</h2>
+
+  <div class="card">
+    <h3>REM1XBET</h3>
+
+    <p>
+      Notre espace partenaire sera disponible
+      prochainement avec ton lien d'affiliation officiel.
+    </p>
+
+  </div>
+
+</section>
+
+<footer>
+
+  <strong>REMIX BET</strong>
+
+  <p>
+    Analyses et statistiques de matchs
+  </p>
+
+  <small>
+    Les analyses ne garantissent aucun gain.
+    Jouez de manière responsable.
+  </small>
+
+</footer>
+
+</body>
+  </html>
