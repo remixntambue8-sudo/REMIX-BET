@@ -1,259 +1,834 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>REMIX BET</title>
-  <style>
-    * {
-      box-sizing: border-box;
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta name="theme-color" content="#0b3d91">
+
+<title>REMIX BET - Analyses & Pronostics</title>
+
+<meta name="description"
+content="REMIX BET - Analyses, statistiques et sélections de matchs.">
+
+<style>
+
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+body{
+    font-family:Arial,Helvetica,sans-serif;
+    background:#f4f7fc;
+    color:#102a43;
+}
+
+header{
+    background:#0b3d91;
+    color:white;
+    text-align:center;
+    padding:25px 15px 20px;
+    border-bottom:6px solid #ffd400;
+}
+
+.logo{
+    font-size:38px;
+    font-weight:900;
+    color:#ffd400;
+    letter-spacing:1px;
+}
+
+.slogan{
+    margin-top:8px;
+    font-size:15px;
+    letter-spacing:.5px;
+}
+
+nav{
+    background:white;
+    display:flex;
+    justify-content:center;
+    gap:8px;
+    padding:12px;
+    position:sticky;
+    top:0;
+    z-index:10;
+    box-shadow:0 2px 10px rgba(0,0,0,.08);
+}
+
+nav button{
+    border:0;
+    background:#edf3ff;
+    color:#0b3d91;
+    font-weight:bold;
+    padding:10px 14px;
+    border-radius:20px;
+    cursor:pointer;
+}
+
+nav button.active,
+nav button:hover{
+    background:#ffd400;
+    color:#0b3d91;
+}
+
+.container{
+    max-width:900px;
+    margin:auto;
+    padding:18px;
+}
+
+.hero{
+    background:linear-gradient(135deg,#0b3d91,#1455bd);
+    color:white;
+    border-radius:28px;
+    padding:35px 22px;
+    text-align:center;
+    margin-bottom:25px;
+    box-shadow:0 10px 30px rgba(11,61,145,.22);
+}
+
+.hero h1{
+    color:#ffd400;
+    font-size:32px;
+    margin-bottom:12px;
+}
+
+.hero p{
+    font-size:17px;
+    line-height:1.6;
+}
+
+.main-button{
+    display:inline-block;
+    margin-top:20px;
+    background:#ffd400;
+    color:#0b3d91;
+    padding:15px 25px;
+    border-radius:14px;
+    font-weight:900;
+    text-decoration:none;
+    border:none;
+    cursor:pointer;
+}
+
+.section-title{
+    color:#0b3d91;
+    font-size:26px;
+    margin:25px 5px 15px;
+}
+
+.search{
+    width:100%;
+    padding:15px;
+    border:2px solid #dbe5f5;
+    border-radius:14px;
+    font-size:16px;
+    margin-bottom:15px;
+    outline:none;
+}
+
+.search:focus{
+    border-color:#ffd400;
+}
+
+.match{
+    background:white;
+    border-radius:20px;
+    margin-bottom:18px;
+    overflow:hidden;
+    box-shadow:0 5px 20px rgba(0,0,0,.08);
+    border-left:6px solid #ffd400;
+}
+
+.match-header{
+    padding:15px;
+    color:#66788a;
+    font-size:14px;
+}
+
+.teams{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:5px 18px 18px;
+    font-weight:900;
+    font-size:18px;
+    color:#0b3d91;
+}
+
+.vs{
+    background:#ffd400;
+    border-radius:50%;
+    width:42px;
+    height:42px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:#0b3d91;
+    font-size:13px;
+}
+
+.analysis{
+    background:#edf4ff;
+    margin:0 15px 15px;
+    padding:17px;
+    border-radius:15px;
+}
+
+.analysis h3{
+    color:#0b3d91;
+    margin-bottom:10px;
+}
+
+.analysis p{
+    line-height:1.5;
+    margin-bottom:10px;
+}
+
+.selection{
+    background:#ffd400;
+    color:#0b3d91;
+    display:inline-block;
+    padding:10px 13px;
+    border-radius:12px;
+    font-weight:900;
+    margin-top:5px;
+}
+
+.confidence{
+    margin-top:10px;
+    font-weight:bold;
+}
+
+.progress{
+    height:9px;
+    background:#d5dfef;
+    border-radius:20px;
+    margin-top:7px;
+    overflow:hidden;
+}
+
+.progress-bar{
+    height:100%;
+    background:#0b3d91;
+    border-radius:20px;
+}
+
+.card{
+    background:white;
+    padding:22px;
+    border-radius:20px;
+    margin-bottom:18px;
+    box-shadow:0 5px 20px rgba(0,0,0,.07);
+}
+
+.card h2{
+    color:#0b3d91;
+    margin-bottom:12px;
+}
+
+.referral{
+    background:linear-gradient(135deg,#ffd400,#ffdf4d);
+    color:#0b3d91;
+    text-align:center;
+}
+
+.code{
+    background:white;
+    border:2px dashed #0b3d91;
+    padding:15px;
+    border-radius:12px;
+    font-size:23px;
+    font-weight:900;
+    margin:15px 0;
+}
+
+.copy-button{
+    background:#0b3d91;
+    color:white;
+    border:0;
+    padding:13px 20px;
+    border-radius:12px;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+.stats{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:10px;
+    margin-top:15px;
+}
+
+.stat{
+    background:#edf4ff;
+    padding:16px 8px;
+    text-align:center;
+    border-radius:14px;
+}
+
+.stat strong{
+    display:block;
+    color:#0b3d91;
+    font-size:22px;
+}
+
+.disclaimer{
+    font-size:12px;
+    color:#687789;
+    line-height:1.5;
+    text-align:center;
+    padding:20px 10px;
+}
+
+footer{
+    background:#0b3d91;
+    color:white;
+    text-align:center;
+    padding:25px 15px;
+    margin-top:30px;
+}
+
+footer strong{
+    color:#ffd400;
+}
+
+.hidden{
+    display:none;
+}
+
+@media(max-width:600px){
+
+    .logo{
+        font-size:32px;
     }
 
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: #f4f7fb;
-      color: #102a56;
+    .hero h1{
+        font-size:27px;
     }
 
-    header {
-      background: #0b3d91;
-      color: white;
-      padding: 18px;
-      text-align: center;
-      border-bottom: 5px solid #ffd400;
+    .teams{
+        font-size:16px;
     }
 
-    header h1 {
-      margin: 0;
-      color: #ffd400;
-      font-size: 30px;
+    .stats{
+        grid-template-columns:1fr 1fr 1fr;
     }
 
-    header p {
-      margin: 6px 0 0;
-      font-size: 12px;
+    nav{
+        overflow-x:auto;
+        justify-content:flex-start;
     }
 
-    .hero {
-      margin: 20px;
-      padding: 25px;
-      background: #0b3d91;
-      color: white;
-      border-radius: 20px;
-      text-align: center;
+    nav button{
+        white-space:nowrap;
     }
+}
 
-    .hero h2 {
-      font-size: 28px;
-      color: #ffd400;
-      margin: 5px;
-    }
-
-    .hero p {
-      line-height: 1.5;
-    }
-
-    .btn {
-      display: inline-block;
-      background: #ffd400;
-      color: #0b3d91;
-      padding: 13px 20px;
-      border-radius: 10px;
-      text-decoration: none;
-      font-weight: bold;
-      margin-top: 10px;
-    }
-
-    .section {
-      margin: 20px;
-    }
-
-    .section h2 {
-      color: #0b3d91;
-    }
-
-    .match {
-      background: white;
-      margin-bottom: 15px;
-      padding: 17px;
-      border-radius: 15px;
-      border-left: 5px solid #ffd400;
-      box-shadow: 0 3px 10px rgba(0,0,0,0.08);
-    }
-
-    .league {
-      color: #777;
-      font-size: 12px;
-    }
-
-    .teams {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin: 15px 0;
-      font-weight: bold;
-    }
-
-    .vs {
-      color: #0b3d91;
-      font-size: 14px;
-    }
-
-    .analysis {
-      background: #eef5ff;
-      padding: 12px;
-      border-radius: 10px;
-      font-size: 14px;
-    }
-
-    .confidence {
-      display: inline-block;
-      background: #ffd400;
-      color: #0b3d91;
-      padding: 5px 9px;
-      border-radius: 20px;
-      font-weight: bold;
-      margin-top: 8px;
-    }
-
-    .card {
-      background: white;
-      padding: 20px;
-      border-radius: 15px;
-      margin-bottom: 15px;
-      box-shadow: 0 3px 10px rgba(0,0,0,0.08);
-    }
-
-    footer {
-      background: #0b3d91;
-      color: white;
-      text-align: center;
-      padding: 25px 15px;
-      margin-top: 30px;
-    }
-
-    footer strong {
-      color: #ffd400;
-    }
-  </style>
+</style>
 </head>
 
 <body>
 
 <header>
-  <h1>REMIX BET</h1>
-  <p>ANALYSES • STATISTIQUES • PRONOSTICS</p>
+
+    <div class="logo">REMIX BET</div>
+
+    <div class="slogan">
+        ANALYSES • STATISTIQUES • SÉLECTIONS
+    </div>
+
 </header>
 
-<section class="hero">
-  <h2>Bienvenue sur REMIX BET ⚽</h2>
-  <p>
-    Analyse les matchs, consulte les statistiques
-    et découvre nos sélections.
-  </p>
-  <a href="#matchs" class="btn">Voir les matchs</a>
-</section>
 
-<section class="section" id="matchs">
-  <h2>⚽ Matchs du jour</h2>
+<nav>
 
-  <div class="match">
-    <div class="league">Exemple League • 18:00</div>
+    <button class="active" onclick="showSection('accueil',this)">
+        🏠 Accueil
+    </button>
 
-    <div class="teams">
-      <span>Équipe A</span>
-      <span class="vs">VS</span>
-      <span>Équipe B</span>
+    <button onclick="showSection('matchs',this)">
+        ⚽ Matchs
+    </button>
+
+    <button onclick="showSection('analyse',this)">
+        📊 Analyses
+    </button>
+
+    <button onclick="showSection('parrainage',this)">
+        👥 Parrainage
+    </button>
+
+</nav>
+
+
+<div class="container">
+
+
+<!-- ACCUEIL -->
+
+<section id="accueil">
+
+    <div class="hero">
+
+        <h1>Bienvenue sur REMIX BET ⚽</h1>
+
+        <p>
+            Analyse les matchs, consulte les statistiques
+            et découvre nos sélections.
+        </p>
+
+        <button class="main-button"
+        onclick="showSection('matchs',document.querySelectorAll('nav button')[1])">
+            Voir les matchs
+        </button>
+
     </div>
 
-    <div class="analysis">
-      <strong>📊 Analyse</strong>
-      <p>
-        Exemple d'analyse du match. Les vraies données
-        seront connectées dans une prochaine version.
-      </p>
 
-      <strong>🎯 Sélection : Plus de 1,5 buts</strong><br>
+    <div class="card">
 
-      <span class="confidence">
-        Confiance : 78%
-      </span>
+        <h2>📊 REMIX BET en chiffres</h2>
+
+        <div class="stats">
+
+            <div class="stat">
+                <strong>24+</strong>
+                Matchs
+            </div>
+
+            <div class="stat">
+                <strong>78%</strong>
+                Confiance
+            </div>
+
+            <div class="stat">
+                <strong>24/7</strong>
+                Service
+            </div>
+
+        </div>
+
     </div>
-  </div>
 
-  <div class="match">
-    <div class="league">Exemple League • 20:30</div>
 
-    <div class="teams">
-      <span>Équipe C</span>
-      <span class="vs">VS</span>
-      <span>Équipe D</span>
+    <div class="card">
+
+        <h2>🎯 Notre objectif</h2>
+
+        <p>
+            REMIX BET rassemble des statistiques et des
+            analyses sportives afin d'aider les utilisateurs
+            à mieux comprendre les matchs.
+        </p>
+
+        <br>
+
+        <p>
+            Les sélections sont basées sur les données
+            disponibles et ne garantissent jamais un résultat.
+        </p>
+
     </div>
-
-    <div class="analysis">
-      <strong>📊 Analyse</strong>
-      <p>
-        Exemple d'analyse pour présenter
-        les statistiques du match.
-      </p>
-
-      <strong>🎯 Sélection : Double chance 1X</strong><br>
-
-      <span class="confidence">
-        Confiance : 72%
-      </span>
-    </div>
-  </div>
 
 </section>
 
-<section class="section">
 
-  <h2>👥 Parrainage</h2>
 
-  <div class="card">
-    <h3>Invite tes amis</h3>
-    <p>
-      Bientôt, chaque utilisateur de REMIX BET
-      recevra son propre code de parrainage.
-    </p>
+<!-- MATCHS -->
 
-    <a href="#" class="btn">Partager REMIX BET</a>
-  </div>
+<section id="matchs" class="hidden">
+
+    <h2 class="section-title">⚽ Matchs du jour</h2>
+
+    <input
+        type="text"
+        id="search"
+        class="search"
+        placeholder="🔎 Rechercher une équipe..."
+        onkeyup="searchMatches()"
+    >
+
+
+    <div id="matches">
+
+
+        <!-- MATCH 1 -->
+
+        <div class="match">
+
+            <div class="match-header">
+                🌍 Exemple League • 18:00
+            </div>
+
+            <div class="teams">
+
+                <span>Équipe A</span>
+
+                <div class="vs">VS</div>
+
+                <span>Équipe B</span>
+
+            </div>
+
+            <div class="analysis">
+
+                <h3>📊 Analyse du match</h3>
+
+                <p>
+                    Les statistiques récentes indiquent
+                    un match potentiellement ouvert.
+                </p>
+
+                <div class="selection">
+                    🎯 Sélection : Plus de 1,5 buts
+                </div>
+
+                <div class="confidence">
+                    Confiance : 78%
+                </div>
+
+                <div class="progress">
+                    <div class="progress-bar"
+                    style="width:78%"></div>
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- MATCH 2 -->
+
+        <div class="match">
+
+            <div class="match-header">
+                🌍 Exemple League • 20:30
+            </div>
+
+            <div class="teams">
+
+                <span>Équipe C</span>
+
+                <div class="vs">VS</div>
+
+                <span>Équipe D</span>
+
+            </div>
+
+            <div class="analysis">
+
+                <h3>📊 Analyse du match</h3>
+
+                <p>
+                    Les deux équipes présentent des statistiques
+                    équilibrées sur leurs dernières rencontres.
+                </p>
+
+                <div class="selection">
+                    🎯 Sélection : Double chance 1X
+                </div>
+
+                <div class="confidence">
+                    Confiance : 72%
+                </div>
+
+                <div class="progress">
+                    <div class="progress-bar"
+                    style="width:72%"></div>
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- MATCH 3 -->
+
+        <div class="match">
+
+            <div class="match-header">
+                🌍 Exemple League • 21:00
+            </div>
+
+            <div class="teams">
+
+                <span>Équipe E</span>
+
+                <div class="vs">VS</div>
+
+                <span>Équipe F</span>
+
+            </div>
+
+            <div class="analysis">
+
+                <h3>📊 Analyse du match</h3>
+
+                <p>
+                    La tendance statistique suggère une rencontre
+                    avec plusieurs occasions.
+                </p>
+
+                <div class="selection">
+                    🎯 Sélection : Plus de 0,5 but
+                </div>
+
+                <div class="confidence">
+                    Confiance : 81%
+                </div>
+
+                <div class="progress">
+                    <div class="progress-bar"
+                    style="width:81%"></div>
+                </div>
+
+            </div>
+
+        </div>
+
+
+    </div>
 
 </section>
 
-<section class="section">
 
-  <h2>💰 Affiliation</h2>
 
-  <div class="card">
-    <h3>REM1XBET</h3>
+<!-- ANALYSES -->
 
-    <p>
-      Notre espace partenaire sera disponible
-      prochainement avec ton lien d'affiliation officiel.
-    </p>
+<section id="analyse" class="hidden">
 
-  </div>
+    <h2 class="section-title">📊 Analyses REMIX BET</h2>
+
+
+    <div class="card">
+
+        <h2>🔥 Comment fonctionne notre analyse ?</h2>
+
+        <p>
+            REMIX BET prendra progressivement en compte
+            plusieurs indicateurs :
+        </p>
+
+        <br>
+
+        <p>⚽ Forme récente des équipes</p>
+        <p>⚽ Buts marqués et encaissés</p>
+        <p>⚽ Performances à domicile</p>
+        <p>⚽ Performances à l'extérieur</p>
+        <p>⚽ Historique des confrontations</p>
+        <p>⚽ Statistiques des derniers matchs</p>
+
+    </div>
+
+
+    <div class="card">
+
+        <h2>🎯 Types de sélections</h2>
+
+        <p>• Plus/Moins de buts</p>
+        <p>• Double chance</p>
+        <p>• Les deux équipes marquent</p>
+        <p>• Résultat du match</p>
+        <p>• Corners</p>
+        <p>• Cartons</p>
+
+    </div>
+
+
+    <div class="card">
+
+        <h2>⚠️ Important</h2>
+
+        <p>
+            Une analyse statistique n'est pas une garantie
+            de gain. Les résultats sportifs restent incertains.
+        </p>
+
+    </div>
 
 </section>
+
+
+
+<!-- PARRAINAGE -->
+
+<section id="parrainage" class="hidden">
+
+    <h2 class="section-title">👥 Parrainage REMIX BET</h2>
+
+
+    <div class="card referral">
+
+        <h2>🎁 Invite tes amis</h2>
+
+        <p>
+            Partage ton code REMIX BET avec tes amis
+            et développe ton réseau.
+        </p>
+
+
+        <div class="code" id="refCode">
+            REMIXBET
+        </div>
+
+
+        <button class="copy-button"
+        onclick="copyReferral()">
+            📋 Copier mon code
+        </button>
+
+        <p id="copyMessage" style="margin-top:12px;"></p>
+
+    </div>
+
+
+    <div class="card">
+
+        <h2>🔗 Affiliation</h2>
+
+        <p>
+            Cette section sera reliée à notre système
+            d'affiliation afin de permettre à REMIX BET
+            de générer des revenus grâce aux partenaires.
+        </p>
+
+        <br>
+
+        <button class="main-button"
+        onclick="alert('Le système d’affiliation sera connecté dans une prochaine version.')">
+            Devenir partenaire
+        </button>
+
+    </div>
+
+</section>
+
+
+<div class="disclaimer">
+
+    ⚠️ REMIX BET fournit des analyses statistiques à titre
+    informatif. Aucune sélection ne garantit un gain.
+    Jouez de manière responsable et respectez les lois
+    applicables dans votre pays.
+
+</div>
+
+
+</div>
+
 
 <footer>
 
-  <strong>REMIX BET</strong>
+    <strong>REMIX BET</strong>
 
-  <p>
-    Analyses et statistiques de matchs
-  </p>
+    <br><br>
 
-  <small>
-    Les analyses ne garantissent aucun gain.
-    Jouez de manière responsable.
-  </small>
+    Analyses • Statistiques • Pronostics
+
+    <br><br>
+
+    © 2026 REMIX BET
 
 </footer>
 
+
+
+<script>
+
+
+function showSection(sectionId,button){
+
+    document.querySelectorAll(
+        'section'
+    ).forEach(section=>{
+        section.classList.add('hidden');
+    });
+
+    document.getElementById(sectionId)
+        .classList.remove('hidden');
+
+
+    document.querySelectorAll(
+        'nav button'
+    ).forEach(btn=>{
+        btn.classList.remove('active');
+    });
+
+
+    if(button){
+        button.classList.add('active');
+    }
+
+    window.scrollTo({
+        top:0,
+        behavior:'smooth'
+    });
+
+}
+
+
+
+function searchMatches(){
+
+    const search =
+        document.getElementById('search')
+        .value
+        .toLowerCase();
+
+    const matches =
+        document.querySelectorAll('.match');
+
+    matches.forEach(match=>{
+
+        const text =
+            match.innerText.toLowerCase();
+
+        if(text.includes(search)){
+            match.style.display='block';
+        }else{
+            match.style.display='none';
+        }
+
+    });
+
+}
+
+
+
+function copyReferral(){
+
+    const code =
+        document.getElementById('refCode')
+        .innerText;
+
+    navigator.clipboard.writeText(code)
+    .then(()=>{
+
+        document.getElementById(
+            'copyMessage'
+        ).innerText =
+        '✅ Code copié !';
+
+    })
+    .catch(()=>{
+
+        document.getElementById(
+            'copyMessage'
+        ).innerText =
+        'Copie le code : ' + code;
+
+    });
+
+}
+
+
+</script>
+
 </body>
-  </html>
+          </html>
